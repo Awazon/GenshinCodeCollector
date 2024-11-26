@@ -1,9 +1,10 @@
 # GenshinCodeCollector
-- 原神の利用可能なシリアルコードを収集するGoogleAppsScript
+原神の利用可能なシリアルコードを収集するGoogleAppsScript
+
 - [DEMO](https://script.google.com/macros/s/AKfycbx7gvzAu-fMyuU-1j_YhcnUAlhIKsDxDliRdhnfWInqCHEG27XwHggVxDy8Nn-H2obm/exec)
 
 ## Overview
-- 原神のコミュニティwiki (https://genshin-impact.fandom.com/wiki/Promotional_Code) からシリアルコードを抽出し、JSON形式で出力する
+原神のコミュニティwiki (https://genshin-impact.fandom.com/wiki/Promotional_Code) からシリアルコードを抽出し、JSON形式で出力する
 
 ## Requirements
 * Cheerio 16
