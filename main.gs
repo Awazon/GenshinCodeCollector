@@ -5,33 +5,38 @@ function get_html_from_url(url) {
 function extract_code_from_html(html) {
     const $ = Cheerio.load(html);
     const rows = $('table tr');
-    const headings = [];
-    const data = [];
+    const headers = [];
+    const result = [];
 
     rows.each((rowIndex, row) => {
         const cells = $(row).children();
         const rowData = {};
 
         cells.each((colIndex, cell) => {
-            const cellText = $(cell).text().trim();
-            const splitText = cellText.split('\n').map(item => item.trim());
+            // brタグを改行コードに変換後, テキスト部分のみ取得
+            const cellText = $(cell).find('br').replaceWith('\n').end().text().trim();
+            // 改行で分割し、それぞれをトリム処理
+            const cellLines = cellText.split('\n').map(line => line.trim());
 
             if (rowIndex === 0) {
-                // ヘッダー行
-                headings.push(splitText.join(' '));
+                // ヘッダー行の場合
+                headers.push(cellLines);
             } else {
-                // データ行
-                rowData[headings[colIndex] || `Column${colIndex + 1}`] = splitText.length > 1 ? splitText : splitText[0];
+                // データ行の場合
+                const columnName = headers[colIndex];
+                rowData[columnName] = cellLines.length > 1 ? cellLines : cellLines[0]; // 単一行か複数行かで保存形式を分岐
             }
         });
 
+        // ヘッダー行以外をデータに追加
         if (rowIndex !== 0) {
-            data.push(rowData);
+            result.push(rowData);
         }
     });
 
-    return data;
+    return result;
 }
+
 
 function doGet(e) {
   let html = get_html_from_url("https://genshin-impact.fandom.com/wiki/Promotional_Code");
