@@ -4,7 +4,9 @@
 
 ## Overview
 - 原神のコミュニティwiki (https://genshin-impact.fandom.com/wiki/Promotional_Code) からシリアルコードを抽出し、JSON形式で出力する
-- ライブラリとしてCheerioを使用
+
+## Requirements
+* Cheerio 16
 
 ## TODO
 - [ ] 同じ報酬が貰えるシリアルコードの処理
