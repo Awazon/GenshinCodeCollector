@@ -1,5 +1,5 @@
 # GenshinCodeCollector
-原神の利用可能なシリアルコードを収集するGoogleAppsScript
+原神の利用可能なシリアルコードを収集するGoogleAppsScriptプロジェクト
 
 - [DEMO](https://script.google.com/macros/s/AKfycbx7gvzAu-fMyuU-1j_YhcnUAlhIKsDxDliRdhnfWInqCHEG27XwHggVxDy8Nn-H2obm/exec)
 
